@@ -17,23 +17,53 @@
 
 //! Code Question 2
 
-const hamburger = {
-  name: "Cheese Burger",
+// const hamburger = {
+//   name: "Cheese Burger",
 
-  weight: 250,
+//   weight: 250,
 
-  ingredients: ["Cheese", "Meat", "Bread", "Tomato"],
-};
+//   ingredients: ["Cheese", "Meat", "Bread", "Tomato"],
+// };
 
-const secondBurger = { ...hamburger };
+// const secondBurger = { ...hamburger };
 
-secondBurger.ingredients[0] = "Salad";
+// secondBurger.ingredients[0] = "Salad";
 
-console.log(hamburger.ingredients[0]); // Essendo come gli oggetti, entrambi fanno riferimento ad hamburgher.ingredients quindi, con la modifica di secondBurger in salad, ora per entrambi il primo ingrediente è Salad
+// console.log(hamburger.ingredients[0]);  Essendo come gli oggetti, entrambi fanno riferimento ad hamburgher.ingredients quindi, con la modifica di secondBurger in salad, ora per entrambi il primo ingrediente è Salad
 
-console.log(secondBurger.ingredients[0]); // Essendo come gli oggetti, entrambi fanno riferimento ad hamburgher.ingredients quindi, con la modifica di secondBurger in salad, ora per entrambi il primo ingrediente è Salad
+// console.log(secondBurger.ingredients[0]);  Essendo come gli oggetti, entrambi fanno riferimento ad hamburgher.ingredients quindi, con la modifica di secondBurger in salad, ora per entrambi il primo ingrediente è Salad
 
 /* P.S.: Ricordati che gli Array, come gli oggetti, sono dei Reference Type (Tipi di Riferimento)!
 
     Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
     Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice? */
+
+//!  Code Question 3
+
+const hamburger = {
+  name: "Cheese Burger",
+
+  weight: 250,
+
+  maker: {
+    name: "Anonymous Chef",
+
+    restaurant: {
+      name: "Hyur's Burgers",
+
+      address: "Main Street, 123",
+
+      isOpen: true,
+    },
+
+    age: 29,
+  },
+};
+
+const secondBurger = structuredClone(hamburger);
+
+const thirdBurger = structuredClone(hamburger);
+
+// Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
+
+// In questo caso sono stati creati 3 oggetti perchè è stato utilizzato structuredClone che permette di clonare gli oggetti e di modificare gli oggetti annidati
