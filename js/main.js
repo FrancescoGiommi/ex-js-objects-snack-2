@@ -66,7 +66,7 @@
 
 // Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
 
-//! In questo caso sono stati creati 3 oggetti perchè è stato utilizzato structuredClone che permette di clonare gli oggetti e di modificare gli oggetti annidati
+//! In questo caso sono stati creati 9 oggetti perchè è stato utilizzato structuredClone che permette di clonare gli oggetti e di modificare gli oggetti annidati
 
 //! Code Question 4
 
@@ -179,3 +179,10 @@ const chef = {
 
 // Qual è il metodo migliore per clonare l’oggetto chef, e perché?
 //! Il modo migliore è utilizzare lo spread perchè permette di copiare le funzioni
+
+//!  Snack  (Bonus)
+/*Crea una funzione che permette la copia profonda (deep copy) di un oggetto, che copia anche i suoi metodi (proprietà che contengono funzioni). Usa l’oggetto di Code Question 6 come test.
+
+ Serve usare una funzione ricorsiva! (fai un po’ di ricerca).*/
+
+function copiaChef() {}
