@@ -70,32 +70,77 @@
 
 //! Code Question 4
 
-const chef = {
-  name: "Chef Hyur",
+// const chef = {
+//   name: "Chef Hyur",
 
-  age: 29,
+//   age: 29,
 
-  makeBurger: (num = 1) => {
-    console.log(`Ecco ${num} hamburger per te!`);
-  },
-};
+//   makeBurger: (num = 1) => {
+//     console.log(`Ecco ${num} hamburger per te!`);
+//   },
+// };
 
-const restaurant = {
-  name: "Hyur's Burgers",
+// const restaurant = {
+//   name: "Hyur's Burgers",
 
-  address: {
-    street: "Main Street",
+//   address: {
+//     street: "Main Street",
 
-    number: 123,
-  },
+//     number: 123,
+//   },
 
-  openingDate: new Date(2025, 3, 11),
+//   openingDate: new Date(2025, 3, 11),
 
-  isOpen: false,
-};
+//   isOpen: false,
+// };
 
 // Qual è il metodo migliore per clonare l’oggetto chef, e perché?
 //! Il metodo migliore è lo spread perchè possiamo creare una copia solo superficiale e permette di copiare anche le funzioni
 
 // Qual è il metodo migliore per clonare l’oggetto restaurant, e perché?
 //! Per copiare restaurant il metodo migliore è structuredClone perchè permette di creare cloni di oggetti e oggetti annidati
+
+//! Code Question 5 (Bonus)
+
+const hamburger = {
+  name: "Cheese Burger",
+
+  weight: 250,
+
+  maker: {
+    name: "Anonymous Chef",
+
+    restaurant: {
+      name: "Hyur's Burgers",
+
+      address: "Main Street, 123",
+
+      isOpen: true,
+    },
+
+    age: 29,
+  },
+};
+
+const newRestaurant = { ...hamburger.maker.restaurant };
+
+newRestaurant.name = "Hyur's II";
+
+newRestaurant.address = "Second Street, 12";
+
+const secondBurger = { ...hamburger };
+
+secondBurger.maker.restaurant = newRestaurant;
+
+secondBurger.maker.name = "Chef Hyur";
+
+console.log(hamburger.maker.name); // Qua viene stampato "Chef Hyur" perchè è stato modificato il nome da secondBurger senza copiare maker
+
+console.log(secondBurger.maker.name); // Qua viene stampato "Chef Hyur" perchè viene modificato il nome da secondBurger
+
+console.log(hamburger.maker.restaurant.name); // Qua viene stampato "Hyur's II" perchè è stato modificato il valore di name da newRestaurant senza farne la copia
+
+console.log(secondBurger.maker.restaurant.name); // Qua viene stampato "Hyur's II" perchè è stato sovrascritto newRestaurant come restaurant di secondBurger
+
+// Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
+// Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
